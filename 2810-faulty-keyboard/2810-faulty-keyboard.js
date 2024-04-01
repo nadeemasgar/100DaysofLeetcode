@@ -18,6 +18,7 @@ var finalString = function(s) {
 };
 
 /*
+The JavaScript for of statement loops through the values of an iterable object such as Arrays, Strings, Maps, NodeLists.
 Property acess - let char = text[0];
 charAt()	It provides the char value present at the specified index.
 concat()	It provides a combination of two or more strings.
