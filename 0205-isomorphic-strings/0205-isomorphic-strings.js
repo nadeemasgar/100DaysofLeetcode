@@ -4,27 +4,31 @@
  * @return {boolean}
  */
 var isIsomorphic = function(s, t) {
-    if (s.length !== t.length) return false;
-
+    if(s.length != t.length) {
+        return false;
+    }
+    
     const map = new Map();
-
-    for (let i = 0; i < s.length; i++) {
+    
+    for(let i = 0; i < s.length; i++) {
         const original = s.charAt(i);
         const replacement = t.charAt(i);
-
-        if (!map.has(original)) {
-            if (![...map.values()].includes(replacement)) {
+        
+        if(!map.has(original)) {
+            if(![...map.values()].includes(replacement)) {
                 map.set(original, replacement);
-            } else {
+            }
+            else {
                 return false;
             }
-        } else {
+        }
+        else {
             const mappedCharacter = map.get(original);
-            if (mappedCharacter !== replacement) {
+            if(mappedCharacter !== replacement) {
                 return false;
             }
         }
     }
-
+    
     return true;
 };
