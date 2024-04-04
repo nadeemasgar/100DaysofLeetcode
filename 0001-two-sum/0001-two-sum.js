@@ -4,12 +4,17 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
+    const map = new Map();
     for(let i = 0; i < nums.length; i++) {
-        for(let j = i + 1; j < nums.length; j++) {
-            const sum = nums[i] + nums[j];
-            if(sum == target) return new Array(i , j);
+        map.set(nums[i], i);
+    }
+    
+    for(let i = 0; i < nums.length; i++) {
+        const requiredElement = target - nums[i];
+        if(map.has(requiredElement) && i !== map.get(requiredElement)) {
+            return new Array(i, map.get(requiredElement))
         }
     }
     
-    return new Array();
+    return new Array(1);
 };
