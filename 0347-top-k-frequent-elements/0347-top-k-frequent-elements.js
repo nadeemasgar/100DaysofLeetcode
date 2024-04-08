@@ -22,4 +22,9 @@ var topKFrequent = function(nums, k) {
     }
     
     return ans;
+    
+    /*
+        const entries = Array.from(map.entries()).sort((a, b) => b[1] - a[1])
+        return entries.slice(0, k).map(entry => entry[0])
+    */
 };
