@@ -5,10 +5,8 @@
 var compose = function(functions) {
     
     return function(x) {
-       for(const fn of functions.reverse()) {
-           x = fn(x);
-       } 
-        return x;
+        const ans = functions.reduceRight((acc, fn) => fn(acc), x);
+        return ans;
     }
 };
 
