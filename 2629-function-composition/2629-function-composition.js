@@ -5,8 +5,7 @@
 var compose = function(functions) {
     
     return function(x) {
-        const ans = functions.reduceRight((acc, fn) => fn(acc), x);
-        return ans;
+        return functions.reduceRight((acc, fn) => fn(acc), x);
     }
 };
 
