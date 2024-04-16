@@ -5,6 +5,7 @@
  * @return {Function}
  */
 var cancellable = function(fn, args, t) {
+    // function fn should be called immediately and then called again every t milliseconds
     fn(...args);
     const interval = setInterval(() => {
         fn(...args);
