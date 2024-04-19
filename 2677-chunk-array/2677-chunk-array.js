@@ -4,13 +4,20 @@
  * @return {Array}
  */
 var chunk = function(arr, size) {
-    let idx = 0;
-    const result = [];
-    while(idx < arr.length) {
-        const chunkedArray = arr.slice(idx, idx + size);
-        result.push(chunkedArray);
-        idx += size;
+    const res = [];
+    let subArray = [];
+    
+    for(let i = 0; i < arr.length; i++) {
+        subArray.push(arr[i]);
+        if(subArray.length === size) {
+            res.push(subArray);
+            subArray = [];
+        }
     }
     
-    return result;
+    if(subArray.length) {
+        res.push(subArray);
+    }
+    
+    return res;
 };
