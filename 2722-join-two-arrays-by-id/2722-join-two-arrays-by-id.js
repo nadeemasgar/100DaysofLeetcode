@@ -4,22 +4,17 @@
  * @return {Array}
  */
 var join = function(arr1, arr2) {
-    var res = {};
-    
-    for(let i = 0; i < arr1.length; i++) {
-        res[arr1[i].id] = arr1[i];
+    const res = {};
+    for(const i of arr1) {
+        res[i.id] = i;
     }
     
-    // Overwriting the values
-    for(let i = 0; i < arr2.length; i++) {
-        
-        if(res[arr2[i].id]) {
-            for(const key in arr2[i]) {
-                res[arr2[i].id][key] = arr2[i][key]
-            }
+    for(const i of arr2) {
+        if(res[i.id]) {
+            res[i.id] = {...res[i.id], ...i}; 
         }
         else {
-            res[arr2[i].id] = arr2[i];
+            res[i.id] = i;
         }
     }
     
