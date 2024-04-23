@@ -3,16 +3,13 @@
  * @param {number} depth
  * @return {Array}
  */
-var flat = function flatRecc (arr, d) {
-    if(!Array.isArray(arr)) {
-        return new Array();
-    }
-    
+var flat = function (arr, n) {
     const res = [];
     
-    for(const ele of arr) {
-        if(Array.isArray(ele) && d > 0) {
-            res.push(...flatRecc(ele, d - 1));
+    for(let i = 0; i < arr.length; i++) {
+        const ele = arr[i];
+        if(Array.isArray(ele) && n > 0) {
+            res.push(...flat(ele, n - 1))
         }
         else {
             res.push(ele);
@@ -20,5 +17,4 @@ var flat = function flatRecc (arr, d) {
     }
     
     return res;
-    
 };
