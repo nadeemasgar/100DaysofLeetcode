@@ -5,18 +5,9 @@
  */
 var chunk = function(arr, size) {
     const res = [];
-    let subArray = [];
     
-    for(let i = 0; i < arr.length; i++) {
-        subArray.push(arr[i]);
-        if(subArray.length === size) {
-            res.push(subArray);
-            subArray = [];
-        }
-    }
-    
-    if(subArray.length) {
-        res.push(subArray);
+   while(arr.length > 0) {
+        res.push(arr.splice(0, size));
     }
     
     return res;
