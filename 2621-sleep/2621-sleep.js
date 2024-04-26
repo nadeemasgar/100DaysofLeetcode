@@ -3,11 +3,11 @@
  * @return {Promise}
  */
 async function sleep(millis) {
-    return new Promise((res, rej) => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
-            res(millis);
-        }, millis);
-    })    
+            resolve(millis);
+        }, millis)
+    })
 }
 
 /** 
